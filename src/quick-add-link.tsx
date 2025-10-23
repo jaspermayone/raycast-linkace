@@ -1,7 +1,5 @@
 import { Clipboard, getPreferenceValues, LaunchProps, showHUD } from "@raycast/api";
 
-
-
 interface Arguments {
   url?: string;
 }
