@@ -1,12 +1,5 @@
-import { showToast, Toast, Clipboard, getPreferenceValues, Form, ActionPanel, Action } from "@raycast/api";
-import { useForm, FormValidation } from "@raycast/utils";
-
-interface Preferences {
-  apiUrl: string;
-  apiToken: string;
-  defaultTags?: string;
-  isPrivateByDefault?: boolean;
-}
+import { Action, ActionPanel, Clipboard, Form, getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { FormValidation, useForm } from "@raycast/utils";
 
 interface FormValues {
   url: string;
@@ -25,7 +18,7 @@ interface LinkAceResponse {
 }
 
 export default function Command() {
-  const preferences = getPreferenceValues<Preferences>();
+  const preferences = getPreferenceValues<ExtensionPreferences>();
 
   const { handleSubmit, itemProps } = useForm<FormValues>({
     async onSubmit(values) {

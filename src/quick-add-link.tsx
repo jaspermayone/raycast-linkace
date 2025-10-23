@@ -1,11 +1,6 @@
 import { Clipboard, getPreferenceValues, LaunchProps, showHUD } from "@raycast/api";
 
-interface Preferences {
-  apiUrl: string;
-  apiToken: string;
-  defaultTags?: string;
-  isPrivateByDefault?: boolean;
-}
+
 
 interface Arguments {
   url?: string;
@@ -20,7 +15,7 @@ interface LinkAceResponse {
 }
 
 export default async function Command(props: LaunchProps<{ arguments: Arguments }>) {
-  const preferences = getPreferenceValues<Preferences>();
+  const preferences = getPreferenceValues<ExtensionPreferences>();
 
   // Get URL from arguments or clipboard
   let url = props.arguments.url;
